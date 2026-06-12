@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 
 // Route imports
 const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 dotenv.config();
 connectDB();
@@ -23,8 +24,8 @@ app.use(
 );
 
 // Routes
-app.use("/", authRoutes);
-
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
 
 
 //server

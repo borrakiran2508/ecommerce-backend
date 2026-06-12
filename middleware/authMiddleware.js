@@ -5,7 +5,8 @@ const User = require("../models/User");
 const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (  !authHeader ||
+  !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ message: "Not authorized. No token provided." });
   }
 
@@ -15,7 +16,7 @@ const protect = async (req, res, next) => {
 
     req.user = await User.findById(decoded.id).select("-password");
     if (!req.user) {
-      return res.status(401).json({ message: "User not found." });
+      return res.status(404).json({ message: "User not found." });
     }
 
     next();
