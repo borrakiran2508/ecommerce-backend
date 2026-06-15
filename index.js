@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "shopify-ecommerce-d71c04.netlify.app",
+    origin:"https://shopify-ecommerce-d71c04.netlify.app",
     credentials: true,
   })
 );
