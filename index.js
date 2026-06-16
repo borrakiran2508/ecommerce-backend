@@ -16,9 +16,10 @@ const app = express();
 // Middleware 
 
 app.use(express.json());
+
 app.use(
   cors({
-    origin:"https://shopify-ecommerce-d71c04.netlify.app",
+    origin:["http://localhost:3000","https://shopify-ecommerce-d71c04.netlify.app",],
     credentials: true,
   })
 );
